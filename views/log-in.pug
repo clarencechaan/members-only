@@ -2,9 +2,12 @@ extends layout
 
 block content
   .log-in
+    h1 Log In
     form(method="POST", action="")
       label(for="username") USERNAME
       input(type="text" name="username" minlength="1" maxlength="40" required)
       label(for="password") PASSWORD
       input(type="password" name="password" minlength="1" maxlength="40" required)
       button.log-in-btn(type="submit") Log In
+    span New to members only? 
+      a(href="/sign-up") SIGN UP

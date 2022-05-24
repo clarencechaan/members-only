@@ -5,10 +5,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Open+Sans&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600;700&family=Open+Sans:wght@300;400&family=Open+Sans&display=swap" rel="stylesheet")
+    script(src="/javascripts/script.js") 
   body
     .header 
-      a(href="/").logo members only
+      a(href="/").logo ((members only))
       if user
         a.log-out-btn(href="/log-out") Log Out
       else

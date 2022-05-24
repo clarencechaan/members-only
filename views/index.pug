@@ -1,57 +1,68 @@
 extends layout
 
 block content
-  h1= title
-  if user
-    p Welcome back, #{ user.username } (#{ user.first_name + " " + user.last_name}).
-    a(href="/new-message") New message
-  ul
-    lh Messages
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
-    each message in messages
-      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
-        br
-        | Text: #{ message.text }
-        br
-        | Time: #{ message.date }
+  .index
+    if user
+      h1 Welcome back, #{ user.username } 
+        span.full-name-welcome (#{ user.first_name + " " + user.last_name}).
+      a(href="/new-message").index-item.new-message-btn
+        span Add a new message
+        .plus-btn
+          | +
+    h1 Welcome back, 
+      span.full-name-welcome asdf
+    a(href="/new-message").index-item.new-message-btn
+      span Add a new message
+      .plus-btn
+        | +
+    ul
+      lh Messages
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+      each message in messages
+        li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+          br
+          | Text: #{ message.text }
+          br
+          | Time: #{ message.date }
+  script(src="/javascripts/index.js")

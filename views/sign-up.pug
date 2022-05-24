@@ -2,6 +2,7 @@ extends layout
 
 block content
   .sign-up
+    h1 Sign Up
     form(method="POST", action="")
       label(for="first_name") FIRST NAME
       input(type="text" name="first_name" maxlength="40" required)
@@ -14,3 +15,5 @@ block content
       label(for="password") CONFIRM PASSWORD
       input(type="password" name="confirm" maxlength="40" required)
       button.sign-up-btn(type="submit") Sign Up
+    span Already have an account? 
+      a(href="/log-in") LOG IN
