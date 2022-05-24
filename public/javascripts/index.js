@@ -1,9 +1,13 @@
-const fader = document.querySelector(".index-item.new-message-btn");
-const observer = new IntersectionObserver(
-  ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
-  { threshold: [1], rootMargin: "-61px" }
-);
+const newMessageBtn = document.querySelector(".index-item.new-message-btn");
 
-observer.observe(fader);
+if (newMessageBtn) {
+  const observer = new IntersectionObserver(
+    ([e]) => {
+      e.target.classList.toggle("is-pinned", e.intersectionRatio < 1);
+      newMessageBtn.classList.remove("hidden-pseudo");
+    },
+    { threshold: [1], rootMargin: "-61px 0px -61px 0px" }
+  );
 
-console.log(fader);
+  observer.observe(newMessageBtn);
+}

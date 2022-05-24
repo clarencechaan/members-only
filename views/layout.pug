@@ -10,12 +10,12 @@ html
   body
     .header 
       a(href="/").logo ((members only))
-      if user
-        a.log-out-btn(href="/log-out") Log Out
-      else
-        a.log-in-btn(href="/log-in") Log In
-        a.sign-up-btn(href="/sign-up") Sign Up
-      br
+      .header-btn-group
+        if user
+          a.log-out-btn(href="/log-out") Log Out
+        else
+          a.log-in-btn(href="/log-in") Log In
+          a.sign-up-btn(href="/sign-up") Sign Up
     .main
       .main-content
         block content
@@ -26,3 +26,11 @@ html
           if flash_messages
             each flash in flash_messages
               li #{ flash }
+    .footer 
+      div 
+        | Made by 
+        a(href="https://www.clarencechan.dev") Clarence Chan
+        |  using MongoDB, Express, Node, and Passport.js.
+      div 
+        | View the code at this project's 
+        a(href="https://github.com/clarencechaan/members-only") GitHub repo.
