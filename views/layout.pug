@@ -3,9 +3,25 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&family=Open+Sans&display=swap" rel="stylesheet")
   body
-    block content
-    if errors
-      ul
-        each error in errors
-          li!= error.msg
+    .header 
+      a(href="/").logo members only
+      if user
+        a.log-out-btn(href="/log-out") Log Out
+      else
+        a.log-in-btn(href="/log-in") Log In
+        a.sign-up-btn(href="/sign-up") Sign Up
+      br
+    .main
+      .main-content
+        block content
+        ul
+          if errors
+            each error in errors
+              li #{ error.msg }
+          if flash_messages
+            each flash in flash_messages
+              li #{ flash }

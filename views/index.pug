@@ -2,16 +2,56 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  a(href="/log-in") Log in
-  br
-  a(href="/sign-up") Sign up
-  br
-  a(href="/new-message") Create a new message
-  br
+  if user
+    p Welcome back, #{ user.username } (#{ user.first_name + " " + user.last_name}).
+    a(href="/new-message") New message
   ul
     lh Messages
-    li asdf
-    li asdf
-    li asdf
-    li asdf
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }
+    each message in messages
+      li User: #{ message.user.username } (#{ message.user.first_name + " " + message.user.last_name})
+        br
+        | Text: #{ message.text }
+        br
+        | Time: #{ message.date }

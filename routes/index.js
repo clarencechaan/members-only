@@ -7,5 +7,6 @@ var message_controller = require("../controllers/messageController");
 
 // GET home page.
 router.get("/", message_controller.index);
+router.get("/log-out", user_controller.log_out);
 
 module.exports = router;

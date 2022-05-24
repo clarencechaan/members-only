@@ -1,8 +1,143 @@
+/* LAYOUT */
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font: 14px "Open Sans", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+.header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 75px 0 75px;
+  column-gap: 18px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid lightgray;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.log-in-btn,
+.sign-up-btn,
+.log-out-btn {
+  height: 32px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.log-in-btn,
+.log-out-btn {
+  background-color: white;
+  border: 1px solid rgb(0, 121, 211);
+  color: rgba(0, 121, 211, 255);
+}
+
+.log-in-btn:hover,
+.log-out-btn:hover {
+  background-color: rgb(249, 249, 249);
+}
+
+.sign-up-btn {
+  background-color: rgb(0, 121, 211);
+  color: white;
+}
+
+.sign-up-btn:hover,
+.log-in .log-in-btn:hover,
+.sign-up .sign-up-btn:hover {
+  background-color: rgb(0, 132, 232);
+}
+
+.header a.logo {
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  flex: 1;
+}
+
+.main {
+  background-color: rgba(239, 244, 248);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 1120px;
+  flex: 1;
+}
+
+.main-content > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* LOG-IN / SIGN-UP*/
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.log-in,
+.sign-up {
+  padding-top: 42px;
+}
+
+.log-in label,
+.sign-up label {
+  color: gray;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.log-in input,
+.sign-up input {
+  height: 32px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-family: inherit;
+  margin-bottom: 12px;
+  border: 1px solid lightgray;
+}
+
+.log-in input:focus,
+.sign-up input:focus {
+  outline: 1px solid rgb(0, 121, 211);
+}
+
+.log-in .log-in-btn,
+.sign-up .sign-up-btn {
+  background-color: rgb(0, 121, 211);
+  color: white;
+  border: none;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 10px;
 }

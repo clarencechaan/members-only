@@ -2,36 +2,44 @@ var User = require("../models/user");
 const { body, validationResult } = require("express-validator");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
-const LocalStrategy = require("passport-local").Strategy;
+const { render } = require("../app");
 
 exports.log_in_get = function (req, res) {
-  res.render("log-in");
+  res.render("log-in", {
+    flash_messages: req.flash("error"),
+  });
 };
 
-exports.log_in_post = function (req, res) {
-  passport.use(
-    new LocalStrategy((username, password, done) => {
-      User.findOne({ username: username }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
-        if (!user) {
-          return done(null, false, { message: "Incorrect username" });
-        }
-        bcrypt.compare(password, user.password, (err, res) => {
-          if (res) {
-            // passwords match! log user in
-            return done(null, user);
-          } else {
-            // passwords do not match!
-            return done(null, false, { message: "Incorrect password" });
-          }
-        });
+exports.log_in_post = [
+  body("username", "Username must not be empty.")
+    .trim()
+    .isLength({ min: 1, max: 40 })
+    .escape(),
+  body("password", "Password confirmation must not be empty.")
+    .trim()
+    .isLength({ min: 1, max: 40 })
+    .escape(),
+  function (req, res, next) {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      // There are validation errors. Render form again
+      res.render("log-in", {
+        title: "Log in",
+        errors: errors.array(),
       });
-    })
-  );
-  res.send("NOT IMPLEMENTED: Log in POST");
-};
+      return;
+    }
+
+    next();
+  },
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/log-in",
+    failureFlash: true,
+  }),
+];
 
 exports.create_user_get = function (req, res) {
   res.render("sign-up");
@@ -117,3 +125,13 @@ exports.create_user_post = [
     });
   },
 ];
+
+// handle log out GET
+exports.log_out = function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};

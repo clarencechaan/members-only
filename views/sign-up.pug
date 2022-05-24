@@ -1,25 +1,16 @@
 extends layout
 
 block content
-  form(method="POST", action="")
-    label(for="first_name") First name
-    br
-    input(type="text" name="first_name" required)
-    br
-    label(for="last_name") Last name
-    br
-    input(type="text" name="last_name" required)
-    br
-    label(for="username") Username
-    br
-    input(type="text" name="username" required)
-    br
-    label(for="password") Password
-    br
-    input(type="password" name="password" required)
-    br
-    label(for="password") Confirm password 
-    br
-    input(type="password" name="confirm" required)
-    br
-    button(type="submit") Sign Up
+  .sign-up
+    form(method="POST", action="")
+      label(for="first_name") FIRST NAME
+      input(type="text" name="first_name" maxlength="40" required)
+      label(for="last_name") LAST NAME
+      input(type="text" name="last_name" maxlength="40" required)
+      label(for="username") USERNAME
+      input(type="text" name="username" maxlength="40" required)
+      label(for="password") PASSWORD
+      input(type="password" name="password" maxlength="40" required)
+      label(for="password") CONFIRM PASSWORD
+      input(type="password" name="confirm" maxlength="40" required)
+      button.sign-up-btn(type="submit") Sign Up

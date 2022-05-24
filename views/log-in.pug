@@ -1,13 +1,10 @@
 extends layout
 
 block content
-  form(method="POST", action="")
-    label(for="username") Username
-    br
-    input(type="text" name="username" required)
-    br
-    label(for="password") Password
-    br
-    input(type="text" name="password" required)
-    br
-    button(type="submit") Log in
+  .log-in
+    form(method="POST", action="")
+      label(for="username") USERNAME
+      input(type="text" name="username" minlength="1" maxlength="40" required)
+      label(for="password") PASSWORD
+      input(type="password" name="password" minlength="1" maxlength="40" required)
+      button.log-in-btn(type="submit") Log In
