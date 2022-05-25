@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .secret-form
+    a.back-link(href="/") #{ "< " } BACK
+    h1 Gain admin status
+    p Admins have all the same benefits as members with the addition of the ability to delete messages.
+    if user && !user.admin
+      form(method="POST", action="") 
+        label(for="secret" ) SECRET
+        input(type="text" name="secret" minlength="1" maxlength="40" required)
+        button.secret-form-submit(type="submit") Submit
+    else 
+      p You are already an admin or not logged in.

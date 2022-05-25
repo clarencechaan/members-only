@@ -14,6 +14,12 @@ a {
   text-decoration: none;
 }
 
+a.back-link {
+  color: rgb(0, 121, 211);
+  margin-bottom: 8px;
+  width: 50px;
+}
+
 .header {
   min-height: 48px;
   display: flex;
@@ -36,6 +42,11 @@ a {
   margin-bottom: 8px;
 }
 
+.header .join {
+  padding: 4px 20px 4px 20px;
+  color: rgb(0, 121, 211);
+}
+
 .header-btn-group {
   display: flex;
   column-gap: 16px;
@@ -55,10 +66,16 @@ a {
   color: gray;
 }
 
+.full-name-plate {
+  display: flex;
+  align-items: center;
+}
+
 .log-in-btn,
 .sign-up-btn,
 .log-out-btn,
-.new-message-form .new-message-submit {
+.new-message-form .new-message-submit,
+.secret-form-submit {
   height: 32px;
   width: 120px;
   min-width: 120px;
@@ -90,7 +107,7 @@ a {
 .sign-up-btn:hover,
 .log-in .log-in-btn:hover,
 .sign-up .sign-up-btn:hover,
-.new-message-form .new-message-submit:hover {
+.new-message-form .new-message-submit:hover .secret-form-submit:hover {
   background-color: rgb(0, 132, 232);
 }
 
@@ -152,7 +169,10 @@ h1 {
 
 /* LOG-IN / SIGN-UP / NEW-MESSAGE */
 
-form {
+.sign-up form,
+.new-message-form form,
+.log-in form,
+.secret-form form {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -160,7 +180,8 @@ form {
 
 .log-in label,
 .sign-up label,
-.new-message-form label {
+.new-message-form label,
+.secret-form label {
   color: gray;
   font-weight: 600;
   font-family: "Hind Siliguri", sans-serif;
@@ -168,6 +189,7 @@ form {
 
 .log-in input,
 .sign-up input,
+.secret-form input,
 .new-message-form input,
 .new-message-form textarea {
   height: 32px;
@@ -181,6 +203,7 @@ form {
 
 .log-in input:focus,
 .sign-up input:focus,
+.secret-form input:focus,
 .new-message-form input:focus,
 .new-message-form textarea:focus {
   outline: 1px solid rgb(0, 121, 211);
@@ -188,7 +211,8 @@ form {
 
 .log-in .log-in-btn,
 .sign-up .sign-up-btn,
-.new-message-form .new-message-submit {
+.new-message-form .new-message-submit,
+.secret-form-submit {
   background-color: rgb(0, 121, 211);
   color: white;
   border: none;
@@ -201,12 +225,14 @@ form {
 }
 
 .log-in span:last-child,
-.sign-up span:last-child {
+.sign-up span:last-child,
+.back-link {
   margin-top: 24px;
 }
 
 .log-in span:last-child a,
-.sign-up span:last-child a {
+.sign-up span:last-child a,
+.back-link {
   color: rgb(0, 121, 211);
   font-family: "Hind Siliguri", sans-serif;
   font-size: 13px;
@@ -214,7 +240,8 @@ form {
 }
 
 .log-in span:last-child a:hover,
-.sign-up span:last-child a:hover {
+.sign-up span:last-child a:hover,
+.back-link:hover {
   color: rgb(0, 132, 232);
 }
 
@@ -229,6 +256,7 @@ form {
 
 .index {
   position: relative;
+  display: flex;
 }
 
 span.username-welcome {
@@ -328,6 +356,7 @@ span.username-welcome {
 .index .index-item.message p.message-text {
   margin: 0;
   padding-top: 8px;
+  flex: 1;
 }
 
 .index .index-item.message p.time-ago {
@@ -336,4 +365,32 @@ span.username-welcome {
   margin: 0;
   padding-top: 8px;
   margin-top: auto;
+  margin-left: auto;
+}
+
+.index .index-item-footer {
+  display: flex;
+}
+
+a.form-link {
+  color: rgb(0, 121, 211);
+}
+
+a.form-link:hover {
+  color: rgb(0, 132, 232);
+}
+
+button.delete-message {
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  margin-top: auto;
+  color: red;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
 }

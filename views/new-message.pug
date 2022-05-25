@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  .new-message-form
+  .new-message-form 
+    a.back-link(href="/") #{ "< " } BACK
     h1 New Message
     if user
       form(method="POST", action="") 

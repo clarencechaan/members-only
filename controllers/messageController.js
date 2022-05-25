@@ -3,7 +3,7 @@ const { body, validationResult } = require("express-validator");
 const user = require("../models/user");
 
 // Display index with messages
-exports.index = function (req, res) {
+exports.index = function (req, res, next) {
   Message.find({})
     .populate("user")
     .sort({ date: -1 })
@@ -67,3 +67,14 @@ exports.create_message_post = [
     });
   },
 ];
+
+// handle index message delete POST
+exports.index_message_delete_post = function (req, res) {
+  Message.findByIdAndRemove(req.body.message_id, (err) => {
+    if (err) {
+      return next(err);
+    }
+    //successful
+    res.redirect("/");
+  });
+};

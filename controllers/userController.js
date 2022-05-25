@@ -141,3 +141,112 @@ exports.log_out = function (req, res) {
     res.redirect("/");
   });
 };
+
+// handle secret form GET
+exports.secret_form_get = function (req, res) {
+  res.render("secret-form", { user: req.user });
+};
+
+exports.secret_form_post = [
+  // Validate and sanitize fields.
+  body("secret", "Secret must not be empty.")
+    .trim()
+    .isLength({ min: 1, max: 40 })
+    .toLowerCase()
+    .escape(),
+  function (req, res, next) {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again
+      res.render("secret-form", {
+        errors: errors.array(),
+      });
+      return;
+    }
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (req.body.secret === "cats") {
+        const member = new User({
+          first_name: user.first_name,
+          last_name: user.last_name,
+          username: user.username,
+          password: user.password,
+          member: true,
+          admin: user.admin,
+          _id: user._id,
+        });
+        // Save user.
+        User.findByIdAndUpdate(user._id, member, {}, function (err) {
+          if (err) {
+            return next(err);
+          }
+          //successful
+          res.redirect("/");
+        });
+      } else {
+        res.render("secret-form", {
+          user: req.user,
+          errors: [{ msg: "Incorrect secret word." }],
+        });
+      }
+    });
+  },
+];
+
+// handle admin form GET
+exports.admin_form_get = function (req, res) {
+  res.render("admin-form", { user: req.user });
+};
+
+// handle admin form POST
+exports.admin_form_post = [
+  // Validate and sanitize fields.
+  body("secret", "Secret must not be empty.")
+    .trim()
+    .isLength({ min: 1, max: 40 })
+    .toLowerCase()
+    .escape(),
+  function (req, res, next) {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again
+      res.render("admin-form", {
+        errors: errors.array(),
+      });
+      return;
+    }
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (req.body.secret === "pancakes") {
+        const admin = new User({
+          first_name: user.first_name,
+          last_name: user.last_name,
+          username: user.username,
+          password: user.password,
+          member: true,
+          admin: true,
+          _id: user._id,
+        });
+        // Save user.
+        User.findByIdAndUpdate(user._id, admin, {}, function (err) {
+          if (err) {
+            return next(err);
+          }
+          //successful
+          res.redirect("/");
+        });
+      } else {
+        res.render("admin-form", {
+          user: req.user,
+          errors: [{ msg: "Incorrect secret word." }],
+        });
+      }
+    });
+  },
+];

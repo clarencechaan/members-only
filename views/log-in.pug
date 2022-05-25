@@ -2,6 +2,7 @@ extends layout
 
 block content
   .log-in
+    a.back-link(href="/") #{ "< " } BACK
     h1 Log In
     form(method="POST", action="")
       label(for="username") USERNAME
@@ -9,5 +10,5 @@ block content
       label(for="password") PASSWORD
       input(type="password" name="password" minlength="1" maxlength="40" required)
       button.log-in-btn(type="submit") Log In
-    span New to members only? 
+    span New to ((members only))? 
       a(href="/sign-up") SIGN UP

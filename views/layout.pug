@@ -1,7 +1,8 @@
 doctype html
 html
   head
-    title= title
+    title= "((members only))"
+    link(rel="icon" type="image/x-icon" href="/images/favicon.ico")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
@@ -10,8 +11,13 @@ html
   body
     .header 
       a(href="/").logo ((members only))
+      if user && !user.member
+        a(href="/secret-club").join Gain member status
+      else if user && user.member && !user.admin
+        a(href="/admin-form").join Gain admin status
       .header-btn-group
         if user
+          label.full-name-plate #{ user.first_name + " " + user.last_name }
           label.username-plate #{ user.username }
           a.log-out-btn(href="/log-out") Log Out
         else

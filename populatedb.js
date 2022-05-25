@@ -50,12 +50,13 @@ function userCreate(first_name, last_name, username, password, cb) {
   });
 }
 
-function messageCreate(title, text, user, date, cb) {
+function messageCreate(title, text, user, date, member, cb) {
   var message = new Message({
     title,
     text,
     user,
     date,
+    member,
   });
 
   message.save(function (err) {
@@ -102,6 +103,7 @@ function createMessages(cb) {
           "Hi mates, so I talked to Dr. Helen and because of her illness we need to reschedule the upcoming lecture. You probably notice that this lecture is the last before the exam so Dr. Helen has asked us if we want to attend an additional lecture where we can study more difficult exercises.",
           users[0],
           new Date(),
+          false,
           callback
         );
       },
@@ -111,6 +113,7 @@ function createMessages(cb) {
           "Amongst increasing rooms. Procuring things written concluded painful think secure sensible seems share had arrival remark. Differed savings mind aware. Advice announcing show about. Allow agreeable be denoting distrusts domestic departure secure john chamber thought our feet arose improve throwing west.",
           users[1],
           new Date() - 5 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -120,6 +123,7 @@ function createMessages(cb) {
           "Can followed village window replying confined explain think felicity oppose lovers enquire zealously favourite middletons steepest abroad. Marianne respect ashamed middleton felicity called. But only wrong three. Not easy along money departure learn manor possession about jointure read judgment out points. Because elsewhere adieus voice saved put ﻿no collected. ",
           users[2],
           new Date() - 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -129,6 +133,7 @@ function createMessages(cb) {
           "Witty men procuring excited gave proposal continual county neglected raptures allow vanity terminated merit exposed very household. Bringing companions delightful effects the delightful often had drawn and. Contented open decay dwelling determine known of be expect has own. Several mile suspicion mind covered rejoiced most mind. Sure maids regard nature.",
           users[3],
           new Date() - 7 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -138,6 +143,7 @@ function createMessages(cb) {
           "Attempted keeps fulfilled known lose. Mistress know unfeeling continued respect enabled several daughter worth laughing over entire season. Fortune principle in supported improve witty nor belonging securing surrounded true. Manner rejoiced frankness shew dearest unsatiable sang repair round any. Cottage too assure behaved resolve delicate extensive become.",
           users[4],
           new Date() - 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -147,6 +153,7 @@ function createMessages(cb) {
           "Joy greater lose round windows wooded future almost reserved arise soon your property unlocked thoughts entirely forming. Merit placing child post affixed likewise future county fail park them. Household described insipidity friend excellence particular between. Too praise finished but. Effects view believe them raptures style turned off meet solid piqued fully fat.",
           users[0],
           new Date() - 3 * 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -156,6 +163,7 @@ function createMessages(cb) {
           "Often talked merry advantage introduced discovery you avoid esteems sportsman greatest justice kindness dissimilar scale. Pleasant september to sex increasing sigh long. Covered unlocked window smile jennings kept tears announcing cousin necessary fine innate. Seen removing well secure travelling. Recommend either parties finished breeding delicate frequently fully hoped among linen quitting rooms.",
           users[1],
           new Date() - 2 * 7 * 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -165,6 +173,7 @@ function createMessages(cb) {
           "Forfeited doubt jokes had incommode ourselves his does throwing piqued mother. Unsatiable pure prevailed down hills right esteems very. Matter literature busy dashwoods abilities yet small soon near delight zealously exquisite desire. What opinions is being met placing insipidity affronting oppose strictly between rank convinced extremely daughter moments day. Then instantly unpacked preserved say civility seeing friend effect sorry say.",
           users[2],
           new Date() - 3 * 7 * 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -174,6 +183,7 @@ function createMessages(cb) {
           "Jokes continual allowance calling abilities blush size allow necessary worse sudden gone propriety come viewing shy explained. Consulted settling park song cheerful wishes none. Late viewing parish sincerity added doubt. Particular boisterous rank power demands chicken farther raptures sussex. Esteem expense stairs winding.",
           users[3],
           new Date() - 4 * 7 * 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },
@@ -183,6 +193,7 @@ function createMessages(cb) {
           "Son necessary dare meant hearted carried procured insensible. Attempted raising down except manners change recommend hand. Met peculiar returned purse lived honoured outward shy listening surrounded rather. Interested direction screened world given acceptance another discretion unpleasant built reached removing examine. Smart either expect what wandered.",
           users[4],
           new Date() - 6 * 7 * 24 * 60 * 60 * 1000,
+          false,
           callback
         );
       },

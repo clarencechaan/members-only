@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  .sign-up
+  .sign-up 
+    a.back-link(href="/") #{ "< " } BACK
     h1 Sign Up
     form(method="POST", action="")
       label(for="first_name") FIRST NAME
