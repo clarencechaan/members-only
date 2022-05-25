@@ -1,16 +1,14 @@
 extends layout
 
 block content
-  if user
-    form(method="POST", action="") 
-      label(for="title" ) Title
-      br
-      input(type="text" name="title" minlength="1" maxlength="120" required)
-      br
-      label(for="text") Text
-      br
-      textarea(name="text" minlength="1" maxlength="1500" required) 
-      br
-      button(type="submit") Submit
-  else 
-    p You must be logged in to write a message.
+  .new-message-form
+    h1 New Message
+    if user
+      form(method="POST", action="") 
+        label(for="title" ) TITLE
+        input(type="text" name="title" minlength="1" maxlength="120" required)
+        label(for="text") TEXT
+        textarea(name="text" minlength="1" maxlength="1500" required) 
+        button.new-message-submit(type="submit") Submit
+    else 
+      p You must be logged in to write a message.

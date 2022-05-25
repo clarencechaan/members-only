@@ -41,9 +41,24 @@ a {
   column-gap: 16px;
 }
 
+.username-plate {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-width: 120px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 0 20px 0 20px;
+  color: gray;
+}
+
 .log-in-btn,
 .sign-up-btn,
-.log-out-btn {
+.log-out-btn,
+.new-message-form .new-message-submit {
   height: 32px;
   width: 120px;
   min-width: 120px;
@@ -74,7 +89,8 @@ a {
 
 .sign-up-btn:hover,
 .log-in .log-in-btn:hover,
-.sign-up .sign-up-btn:hover {
+.sign-up .sign-up-btn:hover,
+.new-message-form .new-message-submit:hover {
   background-color: rgb(0, 132, 232);
 }
 
@@ -115,7 +131,26 @@ h1 {
   margin-top: 0;
 }
 
-/* LOG-IN / SIGN-UP*/
+.footer {
+  width: 100%;
+  height: 120px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  text-align: center;
+  padding: 0 26px 0 26px;
+}
+
+.footer a {
+  font-weight: 600;
+  color: rgb(254, 76, 80);
+  text-decoration: underline;
+}
+
+/* LOG-IN / SIGN-UP / NEW-MESSAGE */
 
 form {
   display: flex;
@@ -124,14 +159,17 @@ form {
 }
 
 .log-in label,
-.sign-up label {
+.sign-up label,
+.new-message-form label {
   color: gray;
   font-weight: 600;
   font-family: "Hind Siliguri", sans-serif;
 }
 
 .log-in input,
-.sign-up input {
+.sign-up input,
+.new-message-form input,
+.new-message-form textarea {
   height: 32px;
   box-sizing: border-box;
   padding-left: 10px;
@@ -142,12 +180,15 @@ form {
 }
 
 .log-in input:focus,
-.sign-up input:focus {
+.sign-up input:focus,
+.new-message-form input:focus,
+.new-message-form textarea:focus {
   outline: 1px solid rgb(0, 121, 211);
 }
 
 .log-in .log-in-btn,
-.sign-up .sign-up-btn {
+.sign-up .sign-up-btn,
+.new-message-form .new-message-submit {
   background-color: rgb(0, 121, 211);
   color: white;
   border: none;
@@ -177,23 +218,11 @@ form {
   color: rgb(0, 132, 232);
 }
 
-.footer {
-  width: 100%;
-  height: 120px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid lightgray;
-  text-align: center;
-  padding: 0 26px 0 26px;
-}
-
-.footer a {
-  font-weight: 600;
-  color: rgb(254, 76, 80);
-  text-decoration: underline;
+.new-message-form textarea {
+  width: 600px;
+  height: 300px;
+  padding-top: 10px;
+  resize: none;
 }
 
 /* INDEX */
@@ -247,10 +276,11 @@ span.username-welcome {
 }
 
 .index-item.new-message-btn::after {
-  background: linear-gradient(to bottom, rgba(239, 244, 248) 45%, transparent);
+  background-color: rgba(0, 0, 0, 0.416);
+  background: linear-gradient(to bottom, rgba(239, 244, 248) 70%, transparent);
   content: " ";
   width: 110%;
-  height: 200px;
+  height: 120px;
   pointer-events: none;
   position: absolute;
   margin-left: -24px;

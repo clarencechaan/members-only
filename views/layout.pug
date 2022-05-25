@@ -12,6 +12,7 @@ html
       a(href="/").logo ((members only))
       .header-btn-group
         if user
+          label.username-plate #{ user.username }
           a.log-out-btn(href="/log-out") Log Out
         else
           a.log-in-btn(href="/log-in") Log In
