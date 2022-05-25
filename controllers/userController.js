@@ -119,11 +119,17 @@ exports.create_user_post = [
         if (err) {
           return next(err);
         }
-        //successful - redirect to index
-        res.redirect("/");
+        //successful
+        next();
       });
     });
   },
+  // log in after sign-up
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/log-in",
+    failureFlash: true,
+  }),
 ];
 
 // handle log out GET

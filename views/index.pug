@@ -3,8 +3,8 @@ extends layout
 block content
   .index
     if user
-      h1 Welcome back, #{ user.first_name } 
-        span.username-welcome (#{ user.username }).
+      h1 Welcome back, #{ user.first_name }. 
+        span.username-welcome (#{ user.username })
       a(href="/new-message").index-item.new-message-btn.hidden-pseudo
         span Add a new message
         .plus-btn
