@@ -213,6 +213,7 @@ span.username-welcome {
   border-radius: 14px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .index-item.new-message-btn {
